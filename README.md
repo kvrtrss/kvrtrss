@@ -1,6 +1,6 @@
 # Kvrt
 
-Aspiring game developer based in Baliwag City, Philippines. I build small C# projects to learn how games and software work, and I document what I pick up along the way.
+Student based in Baliwag City, Philippines. I build small C# projects to learn how games and software work, and I document what I pick up along the way.
 
 ## About
 

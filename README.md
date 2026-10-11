@@ -4,7 +4,9 @@ Student based in Baliwag City, Philippines. I build small C# projects to learn h
 
 ## About
 
-I am focused on strengthening my fundamentals in programming and version control, with the goal of building practical projects and contributing to open source.
+## About
+
+I am a student working toward a career in software development. I am building a foundation in some basic programming languages, game development, and I use GitHub to document my progress.
 
 ## Currently Learning
 

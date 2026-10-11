@@ -6,11 +6,11 @@ Student based in Baliwag City, Philippines. I build small C# projects to learn h
 
 ## About
 
-I am a student working toward a career in software development. I am building a foundation in some basic programming languages, game development, and I use GitHub to document my progress.
+Working toward a career in software development. I am building a foundation in some basic programming languages, game development, and I use GitHub to document my progress.
 
 ## Currently Learning
 
-- C# fundamentals
+- Fundamentals
 - Game development
 - Git and version control
 

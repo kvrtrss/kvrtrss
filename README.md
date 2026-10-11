@@ -18,7 +18,8 @@ Working toward a career in software development. I am building a foundation in s
 - Music
 - Anime
 
-## Contact
+## Social Media and Contacts
 
 - Email: kvrtrss@gmail.com
+- Discord: kvrt_rss
 - YouTube: [@kvrtrss](https://youtube.com/@kvrtrss)

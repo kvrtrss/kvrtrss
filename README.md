@@ -12,12 +12,6 @@ Working toward a career in software development. I am building a foundation in s
 - Game development
 - Git and version control
 
-## Interests
-
-- Software development
-- Music
-- Anime
-
 ## Social Media and Contacts
 
 - Email: kvrtrss@gmail.com

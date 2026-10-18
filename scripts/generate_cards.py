@@ -54,11 +54,19 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
-def svg(w, h, body, title):
+REDUCED = "@media (prefers-reduced-motion:reduce){*{animation:none!important}}"
+BASE_CSS = (
+    ".cu{animation:blink 1.1s steps(1) infinite}"
+    "@keyframes blink{0%,50%{opacity:1}50.01%,100%{opacity:0}}"
+)
+
+
+def svg(w, h, body, title, css=""):
+    # css is built only from constants in this file, never from API data.
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
         f'viewBox="0 0 {w} {h}" role="img" aria-label="{esc(title)}">'
-        f"<title>{esc(title)}</title>{body}</svg>"
+        f"<title>{esc(title)}</title><style>{BASE_CSS}{css}{REDUCED}</style>{body}</svg>"
     )
 
 
@@ -75,6 +83,7 @@ def label(text, w):
     return (
         f'<text x="24" y="36" fill="{PAPER}" font-family="{MONO}" font-size="13" '
         f'font-weight="700" letter-spacing="2.5">{esc(text)}</text>'
+        f'<rect class="cu" x="{24 + len(text) * 10.3 + 2:.1f}" y="25" width="8" height="13" fill="{PAPER}"/>'
         f'<line x1="24" y1="46" x2="{w - 32}" y2="46" stroke="{DIM}" stroke-width="1"/>'
     )
 
@@ -151,12 +160,13 @@ def contributions_card(cal):
     x0, y0 = 24, 74
     cells, months, last_month = [], [], None
     for wi, wk in enumerate(weeks):
+        col = []
         for d in wk["contributionDays"]:
             dt = date.fromisoformat(d["date"])
             row = (dt.weekday() + 1) % 7  # Sunday = 0
             fill, stroke = LEVEL_FILL.get(d["contributionLevel"], LEVEL_FILL["NONE"])
             f = f'fill="{fill}"' if fill else 'fill="none"'
-            cells.append(
+            col.append(
                 f'<rect x="{x0 + wi * pitch:.1f}" y="{y0 + row * pitch:.1f}" '
                 f'width="{size:.1f}" height="{size:.1f}" {f} stroke="{stroke}" stroke-width="1"/>'
             )
@@ -166,6 +176,7 @@ def contributions_card(cal):
                     f'font-size="10" letter-spacing="1">{dt.strftime("%b").upper()}</text>'
                 )
                 last_month = dt.month
+        cells.append(f'<g class="w" style="animation-delay:{wi * 0.07:.2f}s">' + "".join(col) + "</g>")
     total = cal["totalContributions"]
     legend_x = W - 10 - 24 - 5 * 16 - 70
     legend = (
@@ -192,7 +203,8 @@ def contributions_card(cal):
         + "".join(cells)
         + legend
     )
-    return svg(W, H, body, f"{total} contributions in the last 12 months")
+    css = ".w{animation:scan 6s ease-in-out infinite}@keyframes scan{0%,30%,100%{opacity:1}12%{opacity:.25}}"
+    return svg(W, H, body, f"{total} contributions in the last 12 months", css)
 
 
 def stats_card(rows):
@@ -244,12 +256,13 @@ def languages_card(langs):
         out += (
             f'<text x="24" y="{y}" fill="{PAPER}" font-family="{MONO}" font-size="13">'
             f"{esc(name[:12])}</text>"
-            f'<rect x="124" y="{y - 12}" width="{w:.0f}" height="14" fill="{BAR_FILLS[i]}" '
+            f'<rect class="bar" style="animation-delay:{0.2 + i * 0.15:.2f}s" x="124" y="{y - 12}" width="{w:.0f}" height="14" fill="{BAR_FILLS[i]}" '
             f'stroke="{PAPER}" stroke-width="1.5"/>'
             f'<text x="{W - 32}" y="{y}" text-anchor="end" fill="{DIM}" font-family="{MONO}" '
             f'font-size="12">{pct:.1f}%</text>'
         )
-    return svg(W, H, out, "Top languages")
+    css = ".bar{transform-box:fill-box;transform-origin:0 50%;animation:grow .9s ease-out backwards}@keyframes grow{from{transform:scaleX(0)}}"
+    return svg(W, H, out, "Top languages", css)
 
 
 # ---------------------------------------------------------------- main
@@ -304,8 +317,8 @@ def main():
 
     rows = [
         ("CONTRIBUTIONS / YR", f'{cal["totalContributions"]:,}'),
-        ("CURRENT STREAK", f"{current} days"),
-        ("LONGEST STREAK", f"{longest} days"),
+        ("CURRENT STREAK", f"{current} day{'' if current == 1 else 's'}"),
+        ("LONGEST STREAK", f"{longest} day{'' if longest == 1 else 's'}"),
         ("PUBLIC REPOS", str(user["repositories"]["totalCount"])),
         ("STARS EARNED", str(stars)),
         ("FOLLOWERS", str(user["followers"]["totalCount"])),

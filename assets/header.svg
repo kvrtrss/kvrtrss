@@ -149,7 +149,7 @@
   <text x="30" y="188"
         fill="#000000"
         font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
-        font-size="14" letter-spacing="1">LET THE WORLD BE YOUR CANVAS</text>
+        font-size="14" letter-spacing="1">LET THE WORLD BE YOUR CANVAS / NOTHING WORKS ON THE FIRST TRY</text>
   <!-- White cover that shrinks away to reveal the text -->
   <rect class="cv" x="30" y="172" width="400" height="24" fill="#ffffff"/>
   <!-- Blinking block cursor that travels with the reveal -->

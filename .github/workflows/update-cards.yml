@@ -1,0 +1,46 @@
+name: Update profile cards
+
+on:
+  schedule:
+    - cron: "17 */12 * * *"   # twice a day
+  workflow_dispatch:           # lets you run it manually from the Actions tab
+  push:
+    branches: [main]
+    paths: ["scripts/**"]
+
+# Deny everything by default; the single job below opts in to what it needs.
+permissions: {}
+
+# Never run two copies at once (avoids push races).
+concurrency:
+  group: update-cards
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write   # needed only to commit the regenerated SVGs
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate cards
+        run: python scripts/generate_cards.py
+        env:
+          # Optional: add a PROFILE_TOKEN secret (classic PAT, read:user ONLY,
+          # with an expiry date) to include private contribution counts.
+          # Never grant it the "repo" scope. Falls back to the default token.
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN || secrets.GITHUB_TOKEN }}
+          PROFILE_USER: ${{ github.repository_owner }}
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/
+          git diff --cached --quiet || (git commit -m "chore: update profile cards" && git push)

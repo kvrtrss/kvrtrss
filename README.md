@@ -1,3 +1,4 @@
+<!-- ========== Header ========== -->
 <div align="center">
   <img src="assets/header.svg" width="100%" alt="Kvrt, student developer from Baliwag City, Philippines">
 </div>
@@ -6,11 +7,11 @@
 
 ## About
 
-Student based in Baliwag City, Bulacan, Philippines. I'm working toward a career in software development, building small projects to learn how games and software work, and documenting what I pick up along the way.
+I'm no expert, and I don't claim to know everything. I'm just someone who enjoys learning new things, putting that knowledge into practice, and seeing what I can make along the way. Every project is a chance to learn something new, make mistakes, and do a little better than before.
 
 ## Currently Learning
 
-<img src="assets/learning.svg" width="100%" alt="Currently learning: Fundamentals, Game development, Git and version control">
+<img src="assets/learning.svg" width="100%" alt="Currently learning: fundamentals, game development, Git and version control">
 
 ## Activity
 
@@ -32,6 +33,7 @@ Student based in Baliwag City, Bulacan, Philippines. I'm working toward a career
   </tr>
 </table>
 
+<!-- ========== Footer ========== -->
 <div align="center">
-  <sub>Always building. Always learning.</sub>
+  <sub>Always building. Always learning. Trying to do better.</sub>
 </div>

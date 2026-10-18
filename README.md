@@ -19,7 +19,7 @@ Student based in Baliwag City, Bulacan, Philippines. I'm working toward a career
 <table>
   <tr>
     <td width="50%"><img src="assets/stats.svg" width="100%" alt="GitHub stats"></td>
-    <td width="50%"><img src="assets/languages.svg" width="100%" alt="Top languages"></td>
+    <td width="50%"><img src="assets/streak.svg" width="100%" alt="Contribution streak"></td>
   </tr>
 </table>
 

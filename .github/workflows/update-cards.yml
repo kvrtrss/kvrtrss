@@ -2,11 +2,11 @@ name: Update profile cards
 
 on:
   schedule:
-    - cron: "17 */12 * * *"   # twice a day
-  workflow_dispatch:           # lets you run it manually from the Actions tab
+        - cron: "17 21 * * *"   # once a day, 21:17 UTC (05:17 in the Philippines)
+  workflow_dispatch:        # lets you run it manually from the Actions tab
   push:
     branches: [main]
-    paths: ["scripts/**"]
+    paths: ["scripts/**", ".github/workflows/update-cards.yml"]
 
 # Deny everything by default; the single job below opts in to what it needs.
 permissions: {}
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
-      contents: write   # needed only to commit the regenerated SVGs
+      contents: write   # used only to publish to the separate "cards" branch
     steps:
       - uses: actions/checkout@v7
 
@@ -30,7 +30,7 @@ jobs:
           python-version: "3.12"
 
       - name: Generate cards
-        run: python scripts/generate_cards.py
+        run: python scripts/generate_cards.py --out "$RUNNER_TEMP/cards"
         env:
           # Optional: add a PROFILE_TOKEN secret (classic PAT, read:user ONLY,
           # with an expiry date) to include private contribution counts.
@@ -38,9 +38,16 @@ jobs:
           GH_TOKEN: ${{ secrets.PROFILE_TOKEN || secrets.GITHUB_TOKEN }}
           PROFILE_USER: ${{ github.repository_owner }}
 
-      - name: Commit changes
+      # main is protected, so the bot never writes to it. The generated SVGs go
+      # to a separate "cards" branch instead: one fresh commit each run, so the
+      # branch never grows and main's history stays clean.
+      - name: Publish to the cards branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/
-          git diff --cached --quiet || (git commit -m "chore: update profile cards" && git push)
+          git checkout --orphan cards-publish
+          git rm -rf --quiet .
+          cp "$RUNNER_TEMP"/cards/*.svg .
+          git add -- *.svg
+          git commit -q -m "chore: update profile cards"
+          git push --force origin cards-publish:cards

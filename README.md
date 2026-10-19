@@ -15,12 +15,12 @@ I'm no expert, and I don't claim to know everything. I'm just someone who enjoys
 
 ## Activity
 
-<img src="assets/contributions.svg" width="100%" alt="Contribution grid for the last 12 months">
+<img src="[assets/contributions.svg](https://github.com/kvrtrss/kvrtrss/raw/cards/contributions.svg)" width="100%" alt="Contribution grid for the last 12 months">
 
 <table>
   <tr>
-    <td width="50%"><img src="assets/stats.svg" width="100%" alt="GitHub stats"></td>
-    <td width="50%"><img src="assets/streak.svg" width="100%" alt="Contribution streak"></td>
+    <td width="50%"><img src="[assets/stats.svg](https://github.com/kvrtrss/kvrtrss/raw/cards/stats.svg)" width="100%" alt="GitHub stats"></td>
+    <td width="50%"><img src="[assets/streak.svg](https://github.com/kvrtrss/kvrtrss/raw/cards/streak.svg)" width="100%" alt="Contribution streak"></td>
   </tr>
 </table>
 

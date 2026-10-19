@@ -80,7 +80,6 @@ BASE_CSS = (
 
 
 def svg(w, h, body, title, css=""):
-    # css is built only from constants and numbers in this file, never from API text.
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
         f'viewBox="0 0 {w} {h}" role="img" aria-label="{esc(title)}">'
@@ -113,7 +112,6 @@ class ApiError(Exception):
 
 
 _OPENER = urllib.request.build_opener(type("_NoRedirect", (urllib.request.HTTPRedirectHandler,), {
-    # Refuse redirects so the Authorization header can never be forwarded elsewhere.
     "redirect_request": lambda self, *a, **k: None,
 }))
 

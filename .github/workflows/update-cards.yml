@@ -2,16 +2,14 @@ name: Update profile cards
 
 on:
   schedule:
-        - cron: "17 21 * * *"   # once a day, 21:17 UTC (05:17 in the Philippines)
-  workflow_dispatch:        # lets you run it manually from the Actions tab
+        - cron: "17 21 * * *"
+  workflow_dispatch:
   push:
     branches: [main]
     paths: ["scripts/**", ".github/workflows/update-cards.yml"]
 
-# Deny everything by default; the single job below opts in to what it needs.
 permissions: {}
 
-# Never run two copies at once (avoids push races).
 concurrency:
   group: update-cards
   cancel-in-progress: false
@@ -21,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
-      contents: write   # used only to publish to the separate "cards" branch
+      contents: write 
     steps:
       - uses: actions/checkout@v7
 
@@ -32,15 +30,9 @@ jobs:
       - name: Generate cards
         run: python scripts/generate_cards.py --out "$RUNNER_TEMP/cards"
         env:
-          # Optional: add a PROFILE_TOKEN secret (classic PAT, read:user ONLY,
-          # with an expiry date) to include private contribution counts.
-          # Never grant it the "repo" scope. Falls back to the default token.
           GH_TOKEN: ${{ secrets.PROFILE_TOKEN || secrets.GITHUB_TOKEN }}
           PROFILE_USER: ${{ github.repository_owner }}
 
-      # main is protected, so the bot never writes to it. The generated SVGs go
-      # to a separate "cards" branch instead: one fresh commit each run, so the
-      # branch never grows and main's history stays clean.
       - name: Publish to the cards branch
         run: |
           git config user.name "github-actions[bot]"

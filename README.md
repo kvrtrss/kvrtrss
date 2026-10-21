@@ -7,7 +7,9 @@
 
 ## About
 
-I'm no expert, and I don't claim to know everything. I'm just someone who enjoys learning new things, putting that knowledge into practice, and seeing what I can make along the way. Every project is a chance to learn something new, make mistakes, and do a little better than before.
+I'm no expert, and I don't claim to know everything. I'm just someone who enjoys learning new things, putting that knowledge into practice, and seeing what I can make along the way. Whether it's building projects, experimenting with code, or drawing just for fun, every creative pursuit is a chance to learn something new, make mistakes, and do a little better than before.
+
+**Profile artwork and design by me.** [@kvrtrss]
 
 ## Currently Learning
 

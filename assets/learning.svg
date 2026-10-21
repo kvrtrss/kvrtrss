@@ -1,1 +1,172 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="170" viewBox="0 0 800 170" role="img" aria-label="Currently learning: fundamentals, game development, Git and version control"><title>Currently learning: fundamentals, game development, Git and version control</title><style>.n{animation:lit 6s ease-in-out infinite}@keyframes lit{0%,35%,100%{fill:transparent}8%,24%{fill:#000000}}.b{transform-box:fill-box;transform-origin:0 50%;animation:ext 6s ease-in-out infinite}@keyframes ext{0%,35%,100%{transform:scaleX(1)}8%,24%{transform:scaleX(2.4)}}</style><rect x="8" y="8" width="252" height="152" fill="#c4c4c4"/><rect x="2" y="2" width="252" height="152" fill="#ffffff" stroke="#000000" stroke-width="2"/><text x="22" y="74" fill="none" stroke="#000000" stroke-width="1.5" font-family="Impact, 'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="56" class="n" style="animation-delay:0.0s">01</text><line x1="22" y1="92" x2="62" y2="92" class="b" style="animation-delay:0.0s" stroke="#000000" stroke-width="3"/><text x="22" y="116" fill="#000000" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="14" font-weight="700">FUNDAMENTALS</text><text x="22" y="138" fill="#5c5c5c" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="12">Core programming concepts</text><rect x="272" y="8" width="252" height="152" fill="#c4c4c4"/><rect x="266" y="2" width="252" height="152" fill="#ffffff" stroke="#000000" stroke-width="2"/><text x="286" y="74" fill="none" stroke="#000000" stroke-width="1.5" font-family="Impact, 'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="56" class="n" style="animation-delay:1.6s">02</text><line x1="286" y1="92" x2="326" y2="92" class="b" style="animation-delay:1.6s" stroke="#000000" stroke-width="3"/><text x="286" y="116" fill="#000000" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="14" font-weight="700">GAME DEVELOPMENT</text><text x="286" y="138" fill="#5c5c5c" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="12">Small playable projects</text><rect x="536" y="8" width="252" height="152" fill="#c4c4c4"/><rect x="530" y="2" width="252" height="152" fill="#ffffff" stroke="#000000" stroke-width="2"/><text x="550" y="74" fill="none" stroke="#000000" stroke-width="1.5" font-family="Impact, 'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="56" class="n" style="animation-delay:3.2s">03</text><line x1="550" y1="92" x2="590" y2="92" class="b" style="animation-delay:3.2s" stroke="#000000" stroke-width="3"/><text x="550" y="116" fill="#000000" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="14" font-weight="700">GIT &amp; VERSION CONTROL</text><text x="550" y="138" fill="#5c5c5c" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="12">Commits, branches, history</text></svg>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800" height="170"
+     viewBox="0 0 800 170"
+     role="img"
+     aria-label="Currently learning: fundamentals, game development, Git and version control">
+
+  <title>Currently Learning</title>
+
+  <style>
+    /* ---------- Card numbers: fill pulse ---------- */
+    .n {
+      animation: lit 6s ease-in-out infinite;
+    }
+
+    @keyframes lit {
+      0%, 35%, 100% { fill: transparent; }
+      8%, 24%       { fill: #000000; }
+    }
+
+    /* ---------- Accent lines: horizontal extension ---------- */
+    .b {
+      transform-box: fill-box;
+      transform-origin: 0 50%;
+      animation: ext 6s ease-in-out infinite;
+    }
+
+    @keyframes ext {
+      0%, 35%, 100% { transform: scaleX(1); }
+      8%, 24%       { transform: scaleX(2.4); }
+    }
+  </style>
+
+  <!-- ========== Card 01: fundamentals ========== -->
+  <g>
+    <!-- Drop shadow -->
+    <rect x="8" y="8"
+          width="252" height="152"
+          fill="#c4c4c4"/>
+
+    <!-- White card body and border -->
+    <rect x="2" y="2"
+          width="252" height="152"
+          fill="#ffffff"
+          stroke="#000000"
+          stroke-width="2"/>
+
+    <!-- Number: animated fill pulse -->
+    <text class="n"
+          x="22" y="74"
+          fill="none"
+          stroke="#000000"
+          stroke-width="1.5"
+          font-family="Impact, 'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+          font-size="56"
+          style="animation-delay: 0s">01</text>
+
+    <!-- Accent line: animated extension -->
+    <line class="b"
+          x1="22" y1="92"
+          x2="62" y2="92"
+          stroke="#000000"
+          stroke-width="3"
+          style="animation-delay: 0s"/>
+
+    <!-- Topic label -->
+    <text x="22" y="116"
+          fill="#000000"
+          font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
+          font-size="14"
+          font-weight="700">Programming Foundations</text>
+
+    <!-- Supporting description -->
+    <text x="22" y="138"
+          fill="#5c5c5c"
+          font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
+          font-size="12">Programming fundamentals and problem-solving.</text>
+  </g>
+
+  <!-- ========== Card 02: game development ========== -->
+  <g>
+    <!-- Drop shadow -->
+    <rect x="272" y="8"
+          width="252" height="152"
+          fill="#c4c4c4"/>
+
+    <!-- White card body and border -->
+    <rect x="266" y="2"
+          width="252" height="152"
+          fill="#ffffff"
+          stroke="#000000"
+          stroke-width="2"/>
+
+    <!-- Number: animated fill pulse -->
+    <text class="n"
+          x="286" y="74"
+          fill="none"
+          stroke="#000000"
+          stroke-width="1.5"
+          font-family="Impact, 'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+          font-size="56"
+          style="animation-delay: 1.6s">02</text>
+
+    <!-- Accent line: animated extension -->
+    <line class="b"
+          x1="286" y1="92"
+          x2="326" y2="92"
+          stroke="#000000"
+          stroke-width="3"
+          style="animation-delay: 1.6s"/>
+
+    <!-- Topic label -->
+    <text x="286" y="116"
+          fill="#000000"
+          font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
+          font-size="14"
+          font-weight="700">AI & Machine Learning</text>
+
+    <!-- Supporting description -->
+    <text x="286" y="138"
+          fill="#5c5c5c"
+          font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
+          font-size="12">AI and intelligent systems.</text>
+  </g>
+
+  <!-- ========== Card 03: Git and version control ========== -->
+  <g>
+    <!-- Drop shadow -->
+    <rect x="536" y="8"
+          width="252" height="152"
+          fill="#c4c4c4"/>
+
+    <!-- White card body and border -->
+    <rect x="530" y="2"
+          width="252" height="152"
+          fill="#ffffff"
+          stroke="#000000"
+          stroke-width="2"/>
+
+    <!-- Number: animated fill pulse -->
+    <text class="n"
+          x="550" y="74"
+          fill="none"
+          stroke="#000000"
+          stroke-width="1.5"
+          font-family="Impact, 'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+          font-size="56"
+          style="animation-delay: 3.2s">03</text>
+
+    <!-- Accent line: animated extension -->
+    <line class="b"
+          x1="550" y1="92"
+          x2="590" y2="92"
+          stroke="#000000"
+          stroke-width="3"
+          style="animation-delay: 3.2s"/>
+
+    <!-- Topic label -->
+    <text x="550" y="116"
+          fill="#000000"
+          font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
+          font-size="14"
+          font-weight="700">Game Development</text>
+
+    <!-- Supporting description -->
+    <text x="550" y="138"
+          fill="#5c5c5c"
+          font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
+          font-size="12">Interactive experiences.</text>
+  </g>
+
+</svg>
